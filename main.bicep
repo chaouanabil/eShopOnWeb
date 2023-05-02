@@ -1,10 +1,11 @@
 
 
-param storageName string = 'stg${uniqueString(resourceGroup().id)}'
+param storagePrefix string = 'stg'
+param storageName string = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 param location string = resourceGroup().location
 
 resource storageaccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: uniqueString(storageName , '1')
+  name: uniqueString(storageName , '11')
   location: location
   kind: 'StorageV2'
   sku: {
@@ -13,7 +14,7 @@ resource storageaccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 }
 
 resource storageaccount2 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: uniqueString(storageName , '2')
+  name: uniqueString(storageName , '8')
   location: location
   kind: 'StorageV2'
   sku: {
@@ -22,7 +23,7 @@ resource storageaccount2 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 }
 
 resource storageaccount3 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: uniqueString(storageName , '3')
+  name: uniqueString(storageName , '10')
   location: location
   kind: 'StorageV2'
   sku: {
